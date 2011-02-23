@@ -1,1 +1,8 @@
-{ "name": "My Preso", "sections": [ {"section":"one"} ]}
+{
+  "name": "Intro to Git",
+  "sections": [
+    {
+      "section":"one"
+    }
+  ]
+}

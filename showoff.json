@@ -2,7 +2,7 @@
   "name": "Intro to Git",
   "sections": [
     {
-      "section":"one"
+      "section":"01_what_is_git"
     }
   ]
 }

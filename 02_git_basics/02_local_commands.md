@@ -189,37 +189,6 @@
 
         initial commit
 
-!SLIDE commandline incremental smaller
-
-    $ git log --stat
-    commit be4a5769174d9b085c804a3695c486dd5931f43a
-    Author: Scott Becker <scott.becker@jivesoftware.com>
-    Date:   Thu Feb 24 22:03:38 2011 -0800
-
-        ignore tmp.txt
-
-     .gitignore |    1 +
-     1 files changed, 1 insertions(+), 0 deletions(-)
-
-    commit af695bce42aa0791190cee6e5524d97cd78a6f8f
-    Author: Scott Becker <scott.becker@jivesoftware.com>
-    Date:   Thu Feb 24 21:54:18 2011 -0800
-
-        add and commit in one
-
-     README |    3 +++
-     1 files changed, 3 insertions(+), 0 deletions(-)
-
-    commit 3c85a9a386de5aec0593367c9a461fc2c933cf7f
-    Author: Scott Becker <scott.becker@jivesoftware.com>
-    Date:   Thu Feb 24 16:56:24 2011 -0800
-
-        initial commit
-
-     README    |    1 +
-     say_hi.rb |    1 +
-     2 files changed, 2 insertions(+), 0 deletions(-)
-
 !SLIDE
 
 # Moving/Renaming Files #

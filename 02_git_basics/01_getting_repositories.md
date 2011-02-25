@@ -8,7 +8,7 @@
 
 !SLIDE commandline incremental
 
-    $ git clone git://github.com/jivesoftware/jiverscripts.git
+    $ git clone git@github.com:jivesoftware/jiverscripts.git
     Cloning into jiverscripts...
     remote: Counting objects: 399, done.
     remote: Compressing objects: 100% (351/351), done.

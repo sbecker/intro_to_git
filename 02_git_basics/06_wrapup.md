@@ -17,3 +17,11 @@
 !SLIDE
 
 # Thanks! #
+
+* Thanks to:
+
+[ProGit Book](http://progit.org/book/)
+
+[GitImmersion](http://gitimmersion.com/)
+
+[Showoff](https://github.com/schacon/showoff)

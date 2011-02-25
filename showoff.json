@@ -3,6 +3,9 @@
   "sections": [
     {
       "section":"01_what_is_git"
+    },
+    {
+      "section":"02_git_basics"
     }
   ]
 }

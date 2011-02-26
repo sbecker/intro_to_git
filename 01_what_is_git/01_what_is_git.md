@@ -2,7 +2,8 @@
 
 # Intro to Git #
 ## Distributed Version Control ##
-Scott Becker, Dev Tools / Jive Apps Framework<br>
+Scott Becker, Dev Tools / Jive Apps Framework<br><br>
+Use the arrow keys to move through the persentation!
 
 !SLIDE bullets
 

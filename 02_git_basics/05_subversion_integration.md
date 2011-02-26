@@ -8,7 +8,7 @@
 
 !SLIDE commandline incremental
 
-    $ git svn clone http://svn.jiveland.com/svn/repos/jaf/apps
+    $ git svn clone http://svn.example.com/svn/repos/foo/apps
     Initialized empty Git repository in /Users/scott.becker/Archive/Development/gitsvn/apps/.git/
     W: Ignoring error from SVN, path probably does not exist: (160013): Filesystem has no item: '/svn/repos/!svn/bc/100/jaf/apps' path not found
     W: Do not be alarmed at the above message git-svn is just searching aggressively for old history.
@@ -37,7 +37,7 @@
 
         Made a change to foo.
 
-        git-svn-id: http://svn.jiveland.com/svn/repos/jaf/apps@139257 c71dbd84-28fa-0310-abbe-db3d66cda40d
+        git-svn-id: http://svn.jiveland.com/svn/repos/foo/apps@139257 c71dbd84-28fa-0310-abbe-db3d66cda40d
 
     commit 19e95b883b532fb1ca1e77d54e0d47b6158cab91
     Author: author.name <author.name@c71dbd84-28fa-0310-abbe-db3d66cda40d>
@@ -45,7 +45,7 @@
 
         Made a change to bar.
 
-        git-svn-id: http://svn.jiveland.com/svn/repos/jaf/apps@139172 c71dbd84-28fa-0310-abbe-db3d66cda40d
+        git-svn-id: http://svn.jiveland.com/svn/repos/foo/apps@139172 c71dbd84-28fa-0310-abbe-db3d66cda40d
 
 !SLIDE
 
@@ -61,7 +61,7 @@
      1 files changed, 1 insertions(+), 0 deletions(-)
     
     $ git svn dcommit
-    Committing to http://svn.jiveland.com/svn/repos/jaf/apps ...
+    Committing to http://svn.jiveland.com/svn/repos/foo/apps ...
     	M	README
     Committed r139636
     	M	README

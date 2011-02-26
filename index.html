@@ -675,15 +675,15 @@ Date:   Tue Feb 22 01:43:14 2011 +0000
 </code></code></pre></div>
 </div><div class="slide" data-transition="none"><div class="content" ref="02_git_basics/05_subversion_integration/5">
 <h1>Commit locally, push to SVN repo</h1></div>
-</div><div class="slide" data-transition="none"><div class="content" ref="02_git_basics/05_subversion_integration/6">
-<pre><code>$ vi README
+</div><div class="slide" data-transition="none"><div class="content commandline incremental" ref="02_git_basics/05_subversion_integration/6">
+<pre><code><code class="command">$ vi README</code><code class="result">
 ...updated README file...
 
-$ git commit -am 'updated README'
+</code><code class="command">$ git commit -am 'updated README'</code><code class="result">
 [master 62e6ea0] updated README
  1 files changed, 1 insertions(+), 0 deletions(-)
 
-$ git svn dcommit
+</code><code class="command">$ git svn dcommit</code><code class="result">
 Committing to http://svn.jiveland.com/svn/repos/foo/apps ...
     M   README
 Committed r139636
@@ -691,7 +691,7 @@ Committed r139636
 r139636 = 6cbe2cfc5d1d38e78f735ee26e67b3ef51aff379 (refs/remotes/git-svn)
 No changes between current HEAD and refs/remotes/git-svn
 Resetting to the latest refs/remotes/git-svn
-</code></pre></div>
+</code></code></pre></div>
 </div><div class="slide" data-transition="none"><div class="content" ref="02_git_basics/05_subversion_integration/7">
 <h1>Pulling in changes from SVN</h1></div>
 </div><div class="slide" data-transition="none"><div class="content commandline incremental" ref="02_git_basics/05_subversion_integration/8">

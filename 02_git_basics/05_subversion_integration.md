@@ -51,7 +51,7 @@
 
 # Commit locally, push to SVN repo #
 
-!SLIDE
+!SLIDE commandline incremental
 
     $ vi README
     ...updated README file...

@@ -1,0 +1,740 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Intro to Git</title>
+
+  <link rel="stylesheet" href="./css/reset.css" type="text/css"/>
+  <link rel="stylesheet" href="./css/showoff.css" type="text/css"/>
+
+  <script type="text/javascript" src="./js/jquery-1.4.2.min.js"></script>
+  <script type="text/javascript" src="./js/jquery.cycle.all.js"></script>
+	<script type="text/javascript" src="./js/jquery-print.js"></script>
+  <script type="text/javascript" src="./js/jquery.batchImageLoad.js"></script>
+
+  <script type="text/javascript" src="./js/jquery.doubletap-0.1.js"></script>
+
+  <script type="text/javascript" src="./js/fg.menu.js"></script>
+  <script type="text/javascript" src="./js/showoff.js"></script>
+  <script type="text/javascript" src="./js/jTypeWriter.js"> </script>
+  <script type="text/javascript" src="./js/sh_main.min.js"></script>
+  <script type="text/javascript" src="./js/core.js"></script>
+  <script type="text/javascript" src="./js/showoffcore.js"></script>
+
+  <link type="text/css" href="./css/fg.menu.css" media="screen" rel="stylesheet" />
+  <link type="text/css" href="./css/theme/ui.all.css" media="screen" rel="stylesheet" />
+  <link type="text/css" href="./css/sh_style.css" rel="stylesheet" >
+
+  
+
+  
+
+  <script type="text/javascript">
+  $(function(){
+    setupPreso(false, './');
+  });
+  </script>
+</head>
+
+<body>
+
+
+<a tabindex="0" href="#search-engines" class="fg-button fg-button-icon-right ui-widget ui-state-default ui-corner-all" id="navmenu"><span class="ui-icon ui-icon-triangle-1-s"></span>slides</a>
+<div id="navigation" class="hidden"></div>
+
+<div id="help">
+  <table>
+    <tr><td class="key">space, &rarr;</td><td>next slide</td></tr>
+    <tr><td class="key">&larr;</td><td>previous slide</td></tr>
+    <tr><td class="key">d</td><td>debug mode</td></tr>
+    <tr><td class="key">## &lt;ret&gt;</td><td>go to slide #</td></tr>
+    <tr><td class="key">c</td><td>table of contents (vi)</td></tr>
+    <tr><td class="key">f</td><td>toggle footer</td></tr>
+    <tr><td class="key">r</td><td>reload slides</td></tr>
+    <tr><td class="key">z</td><td>toggle help (this)</td></tr>
+  </table>
+</div>
+
+<div id="preso">loading presentation...</div>
+<div id="footer">
+  <span id="slideInfo"></span>
+  <span id="debugInfo"></span>
+</div>
+
+<div id="slides" class="offscreen" style="display:none;">
+<div class="slide" data-transition="none"><div class="content center" ref="01_what_is_git/01_what_is_git/1">
+<h1>Intro to Git</h1>
+
+<h2>Distributed Version Control</h2>
+
+<p>Scott Becker, Dev Tools / Jive Apps Framework<br/></p>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="01_what_is_git/01_what_is_git/2">
+<h1>About Version Control</h1>
+
+<ul>
+<li>Record changes to file(s)</li>
+<li>Compare changes over time</li>
+<li>Revert to a previous state</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets smaller" ref="01_what_is_git/01_what_is_git/3">
+<h1>1.0: DIY Version Control</h1>
+
+<ul>
+<li>Simply copy files into another directory (bonus: timestamped)</li>
+<li>Easy to screw up:</li>
+<li>forget which directory you're in</li>
+<li>accidentally write over or copy the wrong file</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets smaller" ref="01_what_is_git/01_what_is_git/4">
+<h1>2.0: Local Version Control</h1>
+
+<ul>
+<li>RCS: Still distributed today</li>
+<li>Keeps patch sets (differences between files)</li>
+<li>Re-create what any file looked like by adding up all the patches</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="01_what_is_git/01_what_is_git/5">
+<h1>2.0: Local Version Control</h1>
+
+<p><img src="./file/01_what_is_git/local_version_control.png" alt="Local Version Control"/>
+All local, all the time</p></div>
+</div><div class="slide" data-transition="none"><div class="content bullets smaller" ref="01_what_is_git/01_what_is_git/6">
+<h1>3.0: Centralized Version Control</h1>
+
+<ul>
+<li>Subversion: Still widely used</li>
+<li>Addresses need to collaborate with others</li>
+<li>Single server contains all versioned files</li>
+<li>All clients check out files from that single place</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="01_what_is_git/01_what_is_git/7">
+<h1>3.0: Centralized Version Control</h1>
+
+<p><img src="./file/01_what_is_git/centralized_version_control.png" alt="Centralized Version Control"/>
+One server, one repository, many clients, many checkouts</p></div>
+</div><div class="slide" data-transition="none"><div class="content bullets smaller" ref="01_what_is_git/01_what_is_git/8">
+<h1>Centralized Disadvantages</h1>
+
+<ul>
+<li>Single point of failure</li>
+<li>Entire history in a single place</li>
+<li>Server down? Can't make commits or share changes</li>
+<li>Disk corruption without proper backups? Lose all history</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets smaller" ref="01_what_is_git/01_what_is_git/9">
+<h1>4.0: Distributed Version Control</h1>
+
+<ul>
+<li>Git, Mercurial, Bazaar, Darcs</li>
+<li>Clients don't check out just the latest snapshot</li>
+<li>Each checkout is a full mirror of the repository</li>
+<li>If a server dies, any client repository could be used to restore</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center smaller" ref="01_what_is_git/01_what_is_git/10">
+<h1>4.0: Distributed Version Control</h1>
+
+<p><img src="./file/01_what_is_git/distributed_version_control.png" alt="Distributed Version Control"/>
+One repository per client or server</p></div>
+</div><div class="slide" data-transition="none"><div class="content bullets smaller" ref="01_what_is_git/01_what_is_git/11">
+<h1>Distributed Advantages</h1>
+
+<ul>
+<li>Flexible: Many possible workflows possible</li>
+<li>No Single Point of Failure</li>
+<li>Work Offline</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets smaller" ref="01_what_is_git/01_what_is_git/12">
+<h1>History of Git</h1>
+
+<ul>
+<li>2002-2005: Linux kernel used a proprietary DCVS called BitKeeper</li>
+<li>2005: Relationship between BitKeeper and community broke down</li>
+<li>Linux community (starting with Linus Torvalds) created their own tool</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets smaller" ref="01_what_is_git/01_what_is_git/13">
+<h1>Goals of Git</h1>
+
+<ul>
+<li>Speed</li>
+<li>Simple design</li>
+<li>Strong support for non-linear development<br>(1000s of parallel branches)</br>
+<li>Fully distributed</li>
+<li>Able to handle large projects, such as the Linux Kernel</li>
+</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="01_what_is_git/02_git_basics/1">
+<h1>Basics of Git</h1>
+
+<ul>
+<li>Snapshots, not differences</li>
+<li>Nearly every operation is local</li>
+<li>Git has integrity (checksums)</li>
+<li>Git generally only adds data</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="01_what_is_git/02_git_basics/2">
+<h1>Three file states</h1>
+
+<ul>
+<li>Committed - latest version is stored</li>
+<li>Modified  - latest version is different</li>
+<li>Staged    - latest version is different, and marked to go into the next commit</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="01_what_is_git/02_git_basics/3">
+<h1>Three main sections in repo</h1>
+
+<ul>
+<li>Git directory     - Git's metadata and database - the repository</li>
+<li>Working directory - Single checkout of one version of the project</li>
+<li>Staging area      - Stores information about what will go in your next commit</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets incremental" ref="01_what_is_git/02_git_basics/4">
+<h1>Basic Git Workflow</h1>
+
+<ul>
+<li>Modify files in your working directory</li>
+<li>Stage the files for commit</li>
+<li>Do a commit - takes the files as they are in the staging area and stores a snapshop permanently in Git</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content center" ref="01_what_is_git/02_git_basics/5">
+<p><img src="./file/01_what_is_git/local_workflow.png" alt="Local Workflow"/></p></div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="01_what_is_git/03_install_setup/1">
+<h1>Installing Git</h1>
+
+<pre class="sh_plain"><code># Redhat / Fedora
+$ yum install git-core
+
+# Debian / Ubuntu
+$ apt-get install git-core
+
+# Mac OS X
+http://code.google.com/p/git-osx-installer
+
+# Windows
+http://code.google.com/p/msysgit</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="01_what_is_git/03_install_setup/2">
+<h1>First Time Setup</h1>
+
+<pre class="sh_plain"><code>$ git config --global user.name "John Doe"
+$ git config --global user.email johndoe@example.com</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="01_what_is_git/03_install_setup/3">
+<h1>Getting Help</h1>
+
+<pre class="sh_plain"><code>Man Pages
+
+$ git help &lt;verb&gt;
+$ git &lt;verb&gt; --help</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="02_git_basics/01_getting_repositories/1">
+<h1>The Basics</h1></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="02_git_basics/01_getting_repositories/2">
+<h1>Cloning an existing repository</h1></div>
+</div><div class="slide" data-transition="none"><div class="content commandline incremental" ref="02_git_basics/01_getting_repositories/3">
+<pre><code><code class="command">$ git clone git@github.com:jivesoftware/jiverscripts.git</code><code class="result">
+Cloning into jiverscripts...
+remote: Counting objects: 399, done.
+remote: Compressing objects: 100% (351/351), done.
+remote: Total 399 (delta 163), reused 162 (delta 26)
+Receiving objects: 100% (399/399), 968.16 KiB | 154 KiB/s, done.
+Resolving deltas: 100% (163/163), done.
+</code></code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="02_git_basics/01_getting_repositories/4">
+<h1>Creating a new repository</h1></div>
+</div><div class="slide" data-transition="none"><div class="content commandline incremental" ref="02_git_basics/01_getting_repositories/5">
+<pre><code><code class="command">$ mkdir gitpreso</code><code class="result">
+
+</code><code class="command">$ cd gitpreso</code><code class="result">
+
+</code><code class="command">$ git init</code><code class="result">
+Initialized empty Git repository in ~/gitpreso/.git/
+
+</code><code class="command">$ git status</code><code class="result">
+# On branch master
+#
+# Initial commit
+#
+nothing to commit (create/copy files &amp; use "git add" to track)
+</code></code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="02_git_basics/02_local_commands/1">
+<h1>Local Commands</h1></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="02_git_basics/02_local_commands/2">
+<h1>Tracking new files</h1></div>
+</div><div class="slide" data-transition="none"><div class="content commandline incremental" ref="02_git_basics/02_local_commands/3">
+<pre><code><code class="command">$ echo "This is a demo." &gt; README</code><code class="result">
+</code><code class="command">$ echo "puts 'Hi Jivers'" &gt; say_hi.rb</code><code class="result">
+
+</code><code class="command">$ git status</code><code class="result">
+# On branch master
+#
+# Initial commit
+#
+# Untracked files:
+#   (use "git add &lt;file&gt;..." to include in commit)
+#
+#       README
+#       say_hi.rb
+nothing added to commit but untracked files present 
+(use "git add" to track)
+</code></code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content commandline incremental" ref="02_git_basics/02_local_commands/4">
+<pre><code><code class="command">$ git add README</code><code class="result">
+
+</code><code class="command">$ git status</code><code class="result">
+# On branch master
+#
+# Initial commit
+#
+# Changes to be committed:
+#   (use "git rm --cached &lt;file&gt;..." to unstage)
+#
+#       new file:   README
+#
+# Untracked files:
+#   (use "git add &lt;file&gt;..." to include in commit)
+#
+#       say_hi.rb
+</code></code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content commandline incremental" ref="02_git_basics/02_local_commands/5">
+<pre><code><code class="command">$ git add say_hi.rb</code><code class="result">
+
+</code><code class="command">$ git status</code><code class="result">
+# On branch master
+#
+# Initial commit
+#
+# Changes to be committed:
+#   (use "git rm --cached &lt;file&gt;..." to unstage)
+#
+#       new file:   README
+#       new file:   say_hi.rb
+#
+</code></code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content commandline incremental" ref="02_git_basics/02_local_commands/6">
+<pre><code><code class="command">$ git commit -m 'initial commit'</code><code class="result">
+[master (root-commit) 3c85a9a] initial commit
+ 2 files changed, 2 insertions(+), 0 deletions(-)
+ create mode 100644 README
+ create mode 100644 say_hi.rb
+
+</code><code class="command">$ git status</code><code class="result">
+# On branch master
+nothing to commit (working directory clean)
+</code></code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="02_git_basics/02_local_commands/7">
+<h1>Stage modified files</h1></div>
+</div><div class="slide" data-transition="none"><div class="content commandline incremental" ref="02_git_basics/02_local_commands/8">
+<pre><code><code class="command">$ echo "Another line." &gt;&gt; README</code><code class="result">
+
+</code><code class="command">$ git status</code><code class="result">
+# On branch master
+# Changes not staged for commit:
+#   (use "git add &lt;file&gt;..." to update what will be committed)
+#   (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
+#
+#       modified:   README
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+</code></code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content commandline incremental" ref="02_git_basics/02_local_commands/9">
+<pre><code><code class="command">$ git add README</code><code class="result">
+</code><code class="command">$ git status</code><code class="result">
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD &lt;file&gt;..." to unstage)
+#
+#       modified:   README
+#
+
+</code><code class="command">$ echo "Yet another line." &gt;&gt; README</code><code class="result">
+</code><code class="command">$ git status</code><code class="result">
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD &lt;file&gt;..." to unstage)
+#
+#       modified:   README
+#
+# Changes not staged for commit:
+#   (use "git add &lt;file&gt;..." to update what will be committed)
+#   (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
+#
+#       modified:   README
+#
+</code></code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content bullets incremental" ref="02_git_basics/02_local_commands/10">
+<h1>What the heck?!</h1>
+
+<ul>
+<li>1: Modified README</li>
+<li>2: Staged README for commit</li>
+<li>3: Modified README again, before commit</li>
+<li>Git tracks changes, not files. "git add" took a snapshot of README as it was at the time.</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="02_git_basics/02_local_commands/11">
+<h1>Skipping the Staging Area</h1></div>
+</div><div class="slide" data-transition="none"><div class="content commandline incremental" ref="02_git_basics/02_local_commands/12">
+<pre><code><code class="command">$ echo "And another new line." &gt;&gt; README</code><code class="result">
+
+</code><code class="command">$ git commit -am 'add and commit in one'</code><code class="result">
+[master af695bc] add and commit in one
+ 1 files changed, 3 insertions(+), 0 deletions(-)
+</code></code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="02_git_basics/02_local_commands/13">
+<h1>Ignoring files</h1></div>
+</div><div class="slide" data-transition="none"><div class="content commandline incremental" ref="02_git_basics/02_local_commands/14">
+<pre><code><code class="command">$ touch tmp.txt</code><code class="result">
+</code><code class="command">$ git status</code><code class="result">
+# On branch master
+# Untracked files:
+#   (use "git add &lt;file&gt;..." to include in commit)
+#
+#       tmp.txt
+nothing added to commit but untracked files present
+
+</code><code class="command">$ echo "tmp.txt" &gt; .gitignore</code><code class="result">
+</code><code class="command">$ git status</code><code class="result">
+# On branch master
+# Untracked files:
+#   (use "git add &lt;file&gt;..." to include in commit)
+#
+#       .gitignore
+nothing added to commit but untracked files present
+
+</code><code class="command">$ git add .gitignore</code><code class="result">
+</code><code class="command">$ git commit -m 'ignore tmp.txt'</code><code class="result">
+</code></code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="02_git_basics/02_local_commands/15">
+<h1>Viewing Logs</h1></div>
+</div><div class="slide" data-transition="none"><div class="content commandline incremental" ref="02_git_basics/02_local_commands/16">
+<pre><code><code class="command">$ git log</code><code class="result">
+commit be4a5769174d9b085c804a3695c486dd5931f43a
+Author: Scott Becker &lt;scott.becker@jivesoftware.com&gt;
+Date:   Thu Feb 24 22:03:38 2011 -0800
+
+    ignore tmp.txt
+
+commit af695bce42aa0791190cee6e5524d97cd78a6f8f
+Author: Scott Becker &lt;scott.becker@jivesoftware.com&gt;
+Date:   Thu Feb 24 21:54:18 2011 -0800
+
+    add and commit in one
+
+commit 3c85a9a386de5aec0593367c9a461fc2c933cf7f
+Author: Scott Becker &lt;scott.becker@jivesoftware.com&gt;
+Date:   Thu Feb 24 16:56:24 2011 -0800
+
+    initial commit
+</code></code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="02_git_basics/02_local_commands/17">
+<h1>Moving/Renaming Files</h1></div>
+</div><div class="slide" data-transition="none"><div class="content commandline incremental" ref="02_git_basics/02_local_commands/18">
+<pre><code><code class="command">$ git mv README README.txt</code><code class="result">
+
+</code><code class="command">$ git status</code><code class="result">
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD &lt;file&gt;..." to unstage)
+#
+#       renamed:    README -&gt; README.txt
+#
+
+</code><code class="command">$ git commit -m 'renamed README to README.txt'</code><code class="result">
+[master ca2e364] renamed README to README.txt
+ 1 files changed, 0 insertions(+), 0 deletions(-)
+ rename README =&gt; README.txt (100%)
+</code></code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="02_git_basics/02_local_commands/19">
+<h1>Removing files</h1></div>
+</div><div class="slide" data-transition="none"><div class="content commandline incremental" ref="02_git_basics/02_local_commands/20">
+<pre><code><code class="command">$ git rm say_hi.rb</code><code class="result">
+rm 'say_hi.rb'
+
+</code><code class="command">$ git status</code><code class="result">
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD &lt;file&gt;..." to unstage)
+#
+#       deleted:    say_hi.rb
+#
+
+</code><code class="command">$ git commit -m 'removed say_hi.rb'</code><code class="result">
+[master d5f291b] removed say_hi.rb
+ 1 files changed, 0 insertions(+), 1 deletions(-)
+ delete mode 100644 say_hi.rb
+</code></code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="02_git_basics/03_remote_commands/1">
+<h1>Remote Repositories</h1></div>
+</div><div class="slide" data-transition="none"><div class="content smaller" ref="02_git_basics/03_remote_commands/2">
+<h1>Jiverscripts on Github...</h1>
+
+<pre><code>$ git clone git@github.com:jivesoftware/jiverscripts.git
+</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="02_git_basics/03_remote_commands/3">
+<h1>Showing Your Remotes</h1></div>
+</div><div class="slide" data-transition="none"><div class="content commandline incremental" ref="02_git_basics/03_remote_commands/4">
+<pre><code><code class="command">$ cd jiverscripts/</code><code class="result">
+
+</code><code class="command">$ git remote</code><code class="result">
+origin
+
+</code><code class="command">$ git remote -v</code><code class="result">
+origin  git@github.com:jivesoftware/jiverscripts.git (fetch)
+origin  git@github.com:jivesoftware/jiverscripts.git (push)
+</code></code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="02_git_basics/03_remote_commands/5">
+<h1>Adding a remote to existing repo</h1></div>
+</div><div class="slide" data-transition="none"><div class="content commandline incremental" ref="02_git_basics/03_remote_commands/6">
+<pre><code><code class="command">$ cd gitpreso</code><code class="result">
+
+</code><code class="command">$ git remote add origin git@github.com:sbecker/gitpreso.git</code><code class="result">
+
+</code><code class="command">$ git push -u origin master</code><code class="result">
+Counting objects: 14, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (11/11), done.
+Writing objects: 100% (14/14), 1.23 KiB, done.
+Total 14 (delta 2), reused 0 (delta 0)
+To git@github.com:sbecker/gitpreso.git
+ * [new branch]      master -&gt; master
+Branch master set up to track remote branch master 
+ from origin.
+</code></code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="02_git_basics/03_remote_commands/7">
+<h1>Pushing to remotes</h1></div>
+</div><div class="slide" data-transition="none"><div class="content commandline incremental" ref="02_git_basics/03_remote_commands/8">
+<pre><code><code class="command">$ echo "So very fine." &gt;&gt; README.txt </code><code class="result">
+
+</code><code class="command">$ git commit -am 'Added another line to readme.'</code><code class="result">
+[master 7b443d8] Added another line to readme.
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+
+</code><code class="command">$ git push origin master</code><code class="result">
+Counting objects: 5, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 337 bytes, done.
+Total 3 (delta 1), reused 0 (delta 0)
+To git@github.com:sbecker/gitpreso.git
+   d5f291b..7b443d8  master -&gt; master
+</code></code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="02_git_basics/03_remote_commands/9">
+<h1>Pulling from remotes</h1></div>
+</div><div class="slide" data-transition="none"><div class="content commandline incremental" ref="02_git_basics/03_remote_commands/10">
+<pre><code><code class="command">$ git pull</code><code class="result">
+remote: Counting objects: 5, done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 3 (delta 1), reused 0 (delta 0)
+Unpacking objects: 100% (3/3), done.
+From github.com:sbecker/gitpreso
+   d5f291b..7b443d8  master     -&gt; origin/master
+Updating d5f291b..7b443d8
+Fast-forward
+ README.txt |    1 +
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+</code></code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="02_git_basics/04_cheap_branches/1">
+<h1>Cheap branches</h1>
+
+<h2>Local, fast, disposable</h2></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="02_git_basics/04_cheap_branches/2">
+<h1>Create a branch</h1></div>
+</div><div class="slide" data-transition="none"><div class="content commandline incremental" ref="02_git_basics/04_cheap_branches/3">
+<pre><code><code class="command">$ git checkout -b crazy_idea</code><code class="result">
+Switched to a new branch 'crazy_idea'
+
+</code><code class="command">$ echo "puts 'super fast code'" &gt; super_fast.rb</code><code class="result">
+
+</code><code class="command">$ git add super_fast.rb</code><code class="result">
+
+</code><code class="command">$ git commit -m 'super fast refactor'</code><code class="result">
+[crazy_idea 95e5afc] super fast refactor
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+ create mode 100644 super_fast.rb
+</code></code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="02_git_basics/04_cheap_branches/4">
+<h1>OMG! Urgent fix needed to production!</h1></div>
+</div><div class="slide" data-transition="none"><div class="content commandline incremental" ref="02_git_basics/04_cheap_branches/5">
+<pre><code><code class="command">$ git checkout master -b hotfix</code><code class="result">
+Switched to a new branch 'hotfix'
+
+</code><code class="command">$ echo "Fix issue." &gt;&gt; README.txt # pretend!</code><code class="result">
+
+</code><code class="command">$ git commit -m 'fix issue'</code><code class="result">
+[hotfix 0e1a30a] fix issue
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+
+</code><code class="command">$ git checkout master</code><code class="result">
+Switched to branch 'master'
+
+</code><code class="command">$ git merge hotfix</code><code class="result">
+Updating 7b443d8..0e1a30a
+Fast-forward
+ README.txt |    1 +
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+
+</code><code class="command">$ git branch -d hotfix</code><code class="result">
+Deleted branch hotfix (was 0e1a30a).
+
+</code><code class="command">$ git push</code><code class="result">
+...
+</code></code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="02_git_basics/04_cheap_branches/6">
+<h1>Continue with that crazy idea...</h1></div>
+</div><div class="slide" data-transition="none"><div class="content commandline incremental" ref="02_git_basics/04_cheap_branches/7">
+<pre><code><code class="command">$ git checkout crazy_idea</code><code class="result">
+Switched to branch 'crazy_idea'
+
+</code><code class="command">$ # lets merge in that hotfix</code><code class="result">
+
+</code><code class="command">$ git rebase master</code><code class="result">
+First, rewinding head to replay your work on top of it...
+Applying: super fast refactor
+
+</code><code class="command">$ # we decide it works, passes tests, etc.. lets merge it in</code><code class="result">
+
+</code><code class="command">$ git checkout master</code><code class="result">
+
+</code><code class="command">$ git merge crazy_idea</code><code class="result">
+Updating 0e1a30a..9a81c6c
+Fast-forward
+ super_fast.rb |    1 +
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+ create mode 100644 super_fast.rb
+
+</code><code class="command">$ git branch -d crazy_idea</code><code class="result">
+Deleted branch crazy_idea (was 9a81c6c).
+</code></code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content bullets incremental" ref="02_git_basics/04_cheap_branches/8">
+<h1>Just a sample...</h1>
+
+<ul>
+<li>since they're fast and local, you use them more</li>
+<li>good practice - a branch per feature and/or JIRA issue</li>
+<li>easy multitasking and context switching</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="02_git_basics/05_subversion_integration/1">
+<h1>Subversion Integration</h1></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="02_git_basics/05_subversion_integration/2">
+<h1>Use Git locally, Subversion upstream!</h1></div>
+</div><div class="slide" data-transition="none"><div class="content commandline incremental" ref="02_git_basics/05_subversion_integration/3">
+<pre><code><code class="command">$ git svn clone http://svn.example.com/svn/repos/foo/apps</code><code class="result">
+Initialized empty Git repository in /Users/scott.becker/Archive/Development/gitsvn/apps/.git/
+W: Ignoring error from SVN, path probably does not exist: (160013): Filesystem has no item: '/svn/repos/!svn/bc/100/jaf/apps' path not found
+W: Do not be alarmed at the above message git-svn is just searching aggressively for old history.
+This may take a while on large repositories
+W: Ignoring error from SVN, path probably does not exist: (160013): Filesystem has no item: '/svn/repos/!svn/bc/100/jaf/apps' path not found
+W: Do not be alarmed at the above message git-svn is just searching aggressively for old history.
+This may take a while on large repositories
+r115752 = e0f1fbfe772264fdba470170256a97ba0cda347b (refs/remotes/git-svn)
+    A   README
+W: +empty_dir: demo
+W: +empty_dir: example
+W: +empty_dir: test
+r115755 = c2af7679d48033febec49a9192830f78b7b2041b (refs/remotes/git-svn)
+    A   test/openclient-js/test_gadget_feature.xml
+    A   example/openclient-js/microblogs.xml
+...
+</code></code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content commandline incremental smaller" ref="02_git_basics/05_subversion_integration/4">
+<pre><code><code class="command">$ cd apps/</code><code class="result">
+
+</code><code class="command">$ git log</code><code class="result">
+commit e056e56329f235d91d1305299b0fdd63d58ee6ac
+Author: author.name &lt;author.name@c71dbd84-28fa-0310-abbe-db3d66cda40d&gt;
+Date:   Tue Feb 22 22:49:24 2011 +0000
+
+    Made a change to foo.
+
+    git-svn-id: http://svn.jiveland.com/svn/repos/foo/apps@139257 c71dbd84-28fa-0310-abbe-db3d66cda40d
+
+commit 19e95b883b532fb1ca1e77d54e0d47b6158cab91
+Author: author.name &lt;author.name@c71dbd84-28fa-0310-abbe-db3d66cda40d&gt;
+Date:   Tue Feb 22 01:43:14 2011 +0000
+
+    Made a change to bar.
+
+    git-svn-id: http://svn.jiveland.com/svn/repos/foo/apps@139172 c71dbd84-28fa-0310-abbe-db3d66cda40d
+</code></code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="02_git_basics/05_subversion_integration/5">
+<h1>Commit locally, push to SVN repo</h1></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="02_git_basics/05_subversion_integration/6">
+<pre><code>$ vi README
+...updated README file...
+
+$ git commit -am 'updated README'
+[master 62e6ea0] updated README
+ 1 files changed, 1 insertions(+), 0 deletions(-)
+
+$ git svn dcommit
+Committing to http://svn.jiveland.com/svn/repos/foo/apps ...
+    M   README
+Committed r139636
+    M   README
+r139636 = 6cbe2cfc5d1d38e78f735ee26e67b3ef51aff379 (refs/remotes/git-svn)
+No changes between current HEAD and refs/remotes/git-svn
+Resetting to the latest refs/remotes/git-svn
+</code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content" ref="02_git_basics/05_subversion_integration/7">
+<h1>Pulling in changes from SVN</h1></div>
+</div><div class="slide" data-transition="none"><div class="content commandline incremental" ref="02_git_basics/05_subversion_integration/8">
+<pre><code><code class="command">$ ...made another change to README elsewhere</code><code class="result">
+
+</code><code class="command">$ ...switch back to git-svn repo and pull in changes</code><code class="result">
+
+</code><code class="command">$ git svn rebase</code><code class="result">
+    M   README
+r139638 = 11d9b1cbf27bb4807d743e93d13e987a3eefc79f (refs/remotes/git-svn)
+First, rewinding head to replay your work on top of it...
+Fast-forwarded master to refs/remotes/git-svn.
+</code></code></pre></div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="02_git_basics/06_wrapup/1">
+<h1>Wrapup</h1>
+
+<ul>
+<li>Git is awesome</li>
+<li>You can start today, with SVN upstream</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content bullets" ref="02_git_basics/06_wrapup/2">
+<h1>Not Covered, but totally exists:</h1>
+
+<ul>
+<li>GUI tools (GitK, GitX, TortoiseGit)</li>
+<li>IDE Integration (IntelliJ, Eclipse, Textmate, everything else)</li>
+<li>Hosting: indepenedently, on GitHub, etc...</li>
+<li>Advanced Workflows</li>
+</ul>
+</div>
+</div><div class="slide" data-transition="none"><div class="content" ref="02_git_basics/06_wrapup/3">
+<h1>Thanks!</h1>
+
+<ul>
+<li>Thanks to:</li>
+</ul>
+
+
+<p><a href="http://progit.org/book/">ProGit Book</a></p>
+
+<p><a href="http://gitimmersion.com/">GitImmersion</a></p>
+
+<p><a href="https://github.com/schacon/showoff">Showoff</a></p></div>
+</div>
+</div>
+
+</body>
+</html>
